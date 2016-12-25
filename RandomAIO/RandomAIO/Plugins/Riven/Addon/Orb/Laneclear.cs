@@ -17,6 +17,8 @@ namespace RandomAIO.Plugins.Riven.Addon.Orb
                 EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Riven.Position)
                     .FirstOrDefault(x => x.IsInRange(Riven, 450));
 
+            if (m == null) return;
+
             if (MenuHandler.lane["q"].Cast<CheckBox>().CurrentValue)
             {
                 if (SpellHandler.Q.IsReady() && m.IsInRange(Riven, 450))

@@ -17,6 +17,8 @@ namespace RandomAIO.Plugins.Riven.Addon.Orb
                 EntityManager.MinionsAndMonsters.GetJungleMonsters(Riven.Position)
                     .FirstOrDefault(x => x.IsInRange(Riven, 450));
 
+            if (m == null) return;
+
             if (MenuHandler.jungle["q"].Cast<CheckBox>().CurrentValue)
             {
                 if (SpellHandler.Q.IsReady() && m.IsInRange(Riven, 450))
