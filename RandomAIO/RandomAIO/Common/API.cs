@@ -14,6 +14,11 @@ namespace RandomAIO.Common
             Notifications.Show(new SimpleNotification(addonname, notifimessage ?? "Welcome Back Buddy!"), 20000);
         }
 
+        public static AIHeroClient Target(this Spell.SpellBase spell)
+        {
+            return TargetSelector.GetTarget(spell.Range, spell.DamageType);
+        }
+
         public static IEnumerable<Obj_AI_Minion> GetEnemyMinions(float range)
         {
             return

@@ -5,11 +5,25 @@ namespace RandomAIO.Plugins.Yasuo.Addon
 {
     public static class MenuHandler
     {
-        public static Menu menu, combo, last, lane, jungle, misc, draw;
+        public static Menu menu, combo, last, lane, jungle, misc, draw, flee, ks, wall;
 
         public static void Load()
         {
             menu = MainMenu.AddMenu("RandomAIO: Yasuo", "index0");
+
+            misc = menu.AddSubMenu("Misc");
+            misc.Add("r", new CheckBox("Auto R"));
+            misc.AddSeparator(8);
+            misc.Add("rmin", new Slider("Auto R at {0} Heroes", 3, 1, 5));
+            misc.AddSeparator(8);
+            misc.Add("qst", new CheckBox("Try stack Q2"));
+
+            flee = menu.AddSubMenu("Flee");
+            flee.Add("e", new CheckBox("Use E"));
+
+            wall = menu.AddSubMenu("Wall");
+            wall.Add("aa", new CheckBox("Auto W against AA"));
+            wall.AddLabel("soon spells!");
 
             combo = menu.AddSubMenu("Combo");
             combo.Add("q", new CheckBox("Use Q"));
@@ -34,6 +48,12 @@ namespace RandomAIO.Plugins.Yasuo.Addon
             last.Add("q", new CheckBox("Use Q"));
             last.Add("qmin", new Slider("Q at {0} Minions", 1, 1, 4));
 
+            draw = menu.AddSubMenu("Drawings");
+            draw.Add("q", new CheckBox("Draw Q"));
+            draw.Add("e", new CheckBox("Draw E"));
+            draw.Add("r", new CheckBox("Draw R"));
+            draw.Add("di", new CheckBox("Damage Indicator"));
+
             lane = menu.AddSubMenu("Laneclear");
             lane.Add("q", new CheckBox("Use Q"));
             lane.Add("q2", new CheckBox("Use Q2"));
@@ -45,23 +65,16 @@ namespace RandomAIO.Plugins.Yasuo.Addon
             lane.Add("q2sli", new Slider("Q2 at {0} Minions", 4, 1, 10));
             lane.Add("qaoesli", new Slider("Q AOE at {0} Minions", 4, 1, 6));
 
+            ks = menu.AddSubMenu("Kill Steal");
+            ks.Add("aa", new CheckBox("Auto AA"));
+            ks.Add("q", new CheckBox("Auto Q"));
+            ks.Add("q2", new CheckBox("Auto Q2"));
+            ks.Add("i", new CheckBox("Auto Ignite"));
+
             jungle = menu.AddSubMenu("Jungleclear");
             jungle.Add("q", new CheckBox("Use Q"));
             jungle.Add("q2", new CheckBox("Use Q2"));
             jungle.Add("e", new CheckBox("Use E"));
-
-            misc = menu.AddSubMenu("Misc");
-            misc.Add("r", new CheckBox("Auto R"));
-            misc.AddSeparator(8);
-            misc.Add("rmin", new Slider("Auto R at {0} Heroes", 3, 1, 5));
-            misc.AddSeparator(8);
-            misc.Add("qst", new CheckBox("Try stack Q2"));
-
-            draw = menu.AddSubMenu("Drawings");
-            draw.Add("q", new CheckBox("Draw Q"));
-            draw.Add("e", new CheckBox("Draw E"));
-            draw.Add("r", new CheckBox("Draw R"));
-            draw.Add("di", new CheckBox("Damage Indicator"));
         }
     }
 }

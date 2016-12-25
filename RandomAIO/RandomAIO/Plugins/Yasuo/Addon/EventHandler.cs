@@ -31,6 +31,8 @@ namespace RandomAIO.Plugins.Yasuo.Addon
                 Laneclear.Get();
             if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear))
                 Jungleclear.Get();
+            if (Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee))
+                Flee.Get();
         }
 
         private static void OnUpdate(EventArgs args)
@@ -95,14 +97,15 @@ namespace RandomAIO.Plugins.Yasuo.Addon
         {
             if (sender.IsMe || sender.IsAlly) return;
 
-            if (sender.IsEnemy)
-            {
-                var pleb = sender as AIHeroClient;
+            if (MenuHandler.wall["aa"].Cast<CheckBox>().CurrentValue)
+                if (sender.IsEnemy)
+                {
+                    var pleb = sender as AIHeroClient;
 
-                if ((pleb != null) && args.Target.IsMe && (args.Target != null))
-                    if (Player.Instance.Distance(pleb.ServerPosition) > 400)
-                        SpellHandler.W.Cast(pleb.Position);
-            }
+                    if ((pleb != null) && args.Target.IsMe && (args.Target != null))
+                        if (Player.Instance.Distance(pleb.ServerPosition) >= 393)
+                            SpellHandler.W.Cast(pleb.Position);
+                }
         }
     }
 }

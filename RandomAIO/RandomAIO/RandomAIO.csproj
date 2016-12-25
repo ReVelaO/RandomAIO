@@ -91,6 +91,7 @@
     <Compile Include="Plugins\Yasuo\Addon\EventHandler.cs" />
     <Compile Include="Plugins\Yasuo\Addon\MenuHandler.cs" />
     <Compile Include="Plugins\Yasuo\Addon\Orb\Combo.cs" />
+    <Compile Include="Plugins\Yasuo\Addon\Orb\Flee.cs" />
     <Compile Include="Plugins\Yasuo\Addon\Orb\Harass.cs" />
     <Compile Include="Plugins\Yasuo\Addon\Orb\Jungleclear.cs" />
     <Compile Include="Plugins\Yasuo\Addon\Orb\Laneclear.cs" />

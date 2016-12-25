@@ -36,11 +36,13 @@ namespace RandomAIO.Plugins.Quinn.Addon
 
         private static void OnDraw(EventArgs args)
         {
-            if (SpellHandler.Q.IsReady())
-                SpellHandler.Q.DrawRange(Color.FromArgb(130, Color.LightBlue));
+            if (MenuHandler.draw["q"].Cast<CheckBox>().CurrentValue)
+                if (SpellHandler.Q.IsReady())
+                    SpellHandler.Q.DrawRange(Color.FromArgb(130, Color.LightBlue));
 
-            if (SpellHandler.E.IsReady())
-                SpellHandler.E.DrawRange(Color.FromArgb(130, Color.RoyalBlue));
+            if (MenuHandler.draw["e"].Cast<CheckBox>().CurrentValue)
+                if (SpellHandler.E.IsReady())
+                    SpellHandler.E.DrawRange(Color.FromArgb(130, Color.RoyalBlue));
         }
 
         private static void OnAfterAttack(AttackableUnit unit, EventArgs args)

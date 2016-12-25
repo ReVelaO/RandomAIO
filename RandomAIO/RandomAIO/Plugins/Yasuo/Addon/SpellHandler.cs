@@ -1,6 +1,7 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Enumerations;
+using EloBuddy.SDK.Spells;
 
 namespace RandomAIO.Plugins.Yasuo.Addon
 {
@@ -8,7 +9,7 @@ namespace RandomAIO.Plugins.Yasuo.Addon
     {
         public static Spell.Skillshot Q, Q2;
         public static Spell.SimpleSkillshot W;
-        public static Spell.Targeted E;
+        public static Spell.Targeted E, Ignite;
         public static Spell.Active Qaoe, R;
 
         public static bool IsQReady
@@ -29,6 +30,7 @@ namespace RandomAIO.Plugins.Yasuo.Addon
             W = new Spell.SimpleSkillshot(SpellSlot.W, 400);
             E = new Spell.Targeted(SpellSlot.E, 475);
             R = new Spell.Active(SpellSlot.R, 1200);
+            Ignite = new Spell.Targeted(SummonerSpells.Ignite.Slot, 600);
 
             Q.AllowedCollisionCount = -1;
             Q2.AllowedCollisionCount = -1;
