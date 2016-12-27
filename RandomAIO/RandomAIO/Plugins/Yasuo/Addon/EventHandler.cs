@@ -90,10 +90,10 @@ namespace RandomAIO.Plugins.Yasuo.Addon
                 SpellHandler.Qaoe.Cast();
                 _eSended = false;
             }
-            if (sender.IsEnemy && sender is AIHeroClient && MenuHandler.wall["s"].Cast<CheckBox>().CurrentValue)
+            /*if (sender.IsEnemy && sender is AIHeroClient && MenuHandler.wall["s"].Cast<CheckBox>().CurrentValue)
                 if (Player.Instance.IsSkillCollisionable(350)
                     && SpellHandler.W.IsReady() && (Player.Instance.Distance(sender.ServerPosition) > 265))
-                    SpellHandler.W.Cast(Player.Instance.Position.Extend(args.Start, SpellHandler.W.Range).To3D());
+                    SpellHandler.W.Cast(Player.Instance.Position.Extend(args.Start, SpellHandler.W.Range).To3D());*/
         }
 
         private static void OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
