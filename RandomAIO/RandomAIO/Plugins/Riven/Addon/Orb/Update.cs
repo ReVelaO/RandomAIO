@@ -34,7 +34,10 @@ namespace RandomAIO.Plugins.Riven.Addon.Orb
                                                                           Riven.GetAutoAttackDamage(x)) &&
                                                                          x.IsValidTarget());
                     if (random != null)
+                    {
                         SpellHandler.W.Cast();
+                        Player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
+                    }
                 }
             if (MenuHandler.ks["r2"].Cast<CheckBox>().CurrentValue)
                 if (SpellHandler.IsR2Ready)

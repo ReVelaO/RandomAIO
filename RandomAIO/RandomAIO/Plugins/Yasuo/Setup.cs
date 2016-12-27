@@ -17,6 +17,7 @@ namespace RandomAIO.Plugins.Yasuo
             SpellHandler.Load();
             MenuHandler.Load();
             DamageIndicator.Load();
+            SpellDetector.Load();
             EventHandler.Load();
         }
     }

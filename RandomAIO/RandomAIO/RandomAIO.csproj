@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\API.cs" />
+    <Compile Include="Common\SpellDetector.cs" />
     <Compile Include="Plugins\Orianna\Addon\BallHandler.cs" />
     <Compile Include="Plugins\Orianna\Addon\DamageHandler.cs" />
     <Compile Include="Plugins\Orianna\Addon\EventHandler.cs" />

@@ -31,6 +31,7 @@ namespace RandomAIO.Plugins.Riven.Addon.Orb
                 if (m.IsInRange(Riven, SpellHandler.W.Range) && SpellHandler.W.IsReady())
                 {
                     SpellHandler.W.Cast();
+                    Player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
                 }
             }
         }

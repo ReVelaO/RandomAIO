@@ -1,6 +1,7 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK;
 using EloBuddy.SDK.Menu.Values;
+using RandomAIO.Common;
 using RandomAIO.Plugins.Yasuo.Addon.Orb;
 using System;
 using System.Drawing;
@@ -84,13 +85,15 @@ namespace RandomAIO.Plugins.Yasuo.Addon
 
         private static void OnProcessSpellCast(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {
-            if (!sender.IsMe) return;
-
-            if (_eSended)
+            if (_eSended && sender.IsMe)
             {
                 SpellHandler.Qaoe.Cast();
                 _eSended = false;
             }
+            if (sender.IsEnemy && sender is AIHeroClient && MenuHandler.wall["s"].Cast<CheckBox>().CurrentValue)
+                if (Player.Instance.IsSkillCollisionable(350)
+                    && SpellHandler.W.IsReady() && (Player.Instance.Distance(sender.ServerPosition) > 265))
+                    SpellHandler.W.Cast(Player.Instance.Position.Extend(args.Start, SpellHandler.W.Range).To3D());
         }
 
         private static void OnBasicAttack(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)

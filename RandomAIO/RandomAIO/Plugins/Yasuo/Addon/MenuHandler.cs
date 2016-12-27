@@ -23,6 +23,7 @@ namespace RandomAIO.Plugins.Yasuo.Addon
 
             wall = menu.AddSubMenu("Wall");
             wall.Add("aa", new CheckBox("Auto W against AA"));
+            wall.Add("s", new CheckBox("Auto W against Spells"));
             wall.AddLabel("soon spells!");
 
             combo = menu.AddSubMenu("Combo");

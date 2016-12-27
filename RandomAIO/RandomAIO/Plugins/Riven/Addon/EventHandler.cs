@@ -17,6 +17,8 @@ namespace RandomAIO.Plugins.Riven.Addon
             Game.OnTick += Update;
             Orbwalker.OnPostAttack += OnPostAttack;
             Drawing.OnDraw += OnDraw;
+            //Obj_AI_Base.OnProcessSpellCast += OnProcessSpellCast;
+            //Spellbook.OnPostCastSpell += OnPostCastSpell;
         }
 
         private static void OnTick(EventArgs args)
@@ -91,5 +93,25 @@ namespace RandomAIO.Plugins.Riven.Addon
                 if (SpellHandler.IsR2Ready)
                     SpellHandler.R2.DrawRange(Color.FromArgb(130, Color.MediumSeaGreen));
         }
+
+        /*private static void OnProcessSpellCast(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
+        {
+            if (sender.IsMe)
+            {
+                if (args.Slot == SpellSlot.W)
+                {
+                    Chat.Say("/d");
+                }
+            }
+        }*/
+
+        /*private static void OnPostCastSpell(Spellbook sender, SpellbookCastSpellEventArgs args)
+        {
+            if (sender.Owner.IsMe && args.Slot == SpellSlot.W)
+            {
+                Player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
+                Orbwalker.ResetAutoAttack();
+            }
+        }*/
     }
 }

@@ -32,6 +32,7 @@ namespace RandomAIO.Plugins.Riven.Addon.Orb
                     MenuHandler.lane["wmin"].Cast<Slider>().CurrentValue && SpellHandler.W.IsReady())
                 {
                     SpellHandler.W.Cast();
+                    Player.IssueOrder(GameObjectOrder.MoveTo, Game.CursorPos);
                 }
             }
         }
